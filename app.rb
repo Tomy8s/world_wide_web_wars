@@ -16,11 +16,15 @@ class WorldWebWars < Sinatra::Base
   end
 
   get '/play' do
+    @player_1 = $player_1
+    @player_2 = $player_2
     erb :play
   end
 
   get '/attack' do
-    $player_2.receive_damage
+    @player_1 = $player_1
+    @player_2 = $player_2
+    @player_2.receive_damage
     erb(:attack)
   end
 

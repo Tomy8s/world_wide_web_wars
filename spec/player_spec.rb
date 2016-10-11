@@ -8,7 +8,7 @@ describe Player do
 
   describe '#hp' do
     it 'starts with 100HP' do
-      expect(player.hp).to eq 100
+      expect(player.hp).to eq described_class::STARTING_HP
     end
   end
 
