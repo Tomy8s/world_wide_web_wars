@@ -1,14 +1,14 @@
 <p>
-  Welcome <%= @player_1.name %> and <%= @player_2.name %>!
+  Welcome <%= @game.player_1.name %> and <%= @game.player_2.name %>!
 </p>
 
 <p>
-  <%= @player_1.name %> has <%= @player_1.hp %> HP.
+  <%= @game.player_1.name %> has <%= @game.player_1.hp %> HP.
   <form action="/attack" method="GET">
     <button value="Attack Player 2" type="submit">Attack Opponent!</button>
   </form>
 </p>
 
 <p>
-  <%= @player_2.name %> has <%= @player_2.hp %> HP.
+  <%= @game.player_2.name %> has <%= @game.player_2.hp %> HP.
 </p>
