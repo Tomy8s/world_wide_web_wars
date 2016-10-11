@@ -24,8 +24,12 @@ class WorldWebWars < Sinatra::Base
     erb :play
   end
 
-  get '/attack_player_2' do
-    erb(:attack_player_2)
+  get '/attack' do
+    @player_1_hp = STARTING_HP - 10
+    @player_2_hp = STARTING_HP - 10
+    @player_1_name = $player_1.name
+    @player_2_name = $player_2.name
+    erb(:attack)
   end
 
 
