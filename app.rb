@@ -1,9 +1,8 @@
 require 'sinatra/base'
 
 class WorldWebWars < Sinatra::Base
-STARTING_HP = 100
 
-
+  STARTING_HP = 100
   enable :sessions
 
   get '/' do
