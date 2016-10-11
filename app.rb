@@ -1,6 +1,8 @@
 require 'sinatra/base'
 
 class WorldWebWars < Sinatra::Base
+STARTING_HP = 100
+
 
   enable :sessions
 
@@ -15,6 +17,8 @@ class WorldWebWars < Sinatra::Base
   end
 
   get '/play' do
+    @player_1_hp = STARTING_HP
+    @player_2_hp = STARTING_HP
     @player_1_name = session[:player_1_name]
     @player_2_name = session[:player_2_name]
     erb :play
