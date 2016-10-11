@@ -23,6 +23,10 @@ class WorldWebWars < Sinatra::Base
     erb :play
   end
 
+  get '/attack_player_2' do
+    erb(:attack_player_2)
+  end
+
 
   # start the server if ruby file executed directly
   run! if app_file == $0
