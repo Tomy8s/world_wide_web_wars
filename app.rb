@@ -19,6 +19,7 @@ class WorldWebWars < Sinatra::Base
 
   get '/play' do
     @game = $game
+    @game.switch_turn if params[:switch] == "true"
     erb :play
   end
 

@@ -1,14 +1,23 @@
 <p>
   Welcome <%= @game.player_1.name %> and <%= @game.player_2.name %>!
 </p>
-
+<p>
+  <%= @game.attacker.name %>'s turn to attack.
+</p>
 <p>
   <%= @game.player_1.name %> has <%= @game.player_1.hp %> HP.
-  <form action="/attack" method="GET">
-    <button value="Attack Player 2" type="submit">Attack Opponent!</button>
-  </form>
 </p>
 
 <p>
   <%= @game.player_2.name %> has <%= @game.player_2.hp %> HP.
 </p>
+
+
+<form action="/attack" method="GET">
+  <button value="Attack <%= @game.defender.name %>" type="submit">Attack <%= @game.defender.name %></button>
+</form>
+
+<form action="" method="GET">
+  <input type="hidden" name="switch" value="true">
+  <button value="Switch Turns" type="submit">Switch Turns</button>
+</form>
