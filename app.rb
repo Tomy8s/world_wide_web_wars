@@ -5,10 +5,10 @@ class Battle < Sinatra::Base
 
 
   get '/play' do
-    @attack = !!params[:attack]
+    @attack = $attack
     @player1 = $player1.name
     @player2 = $player2.name
-    @points2 = 100
+    @points2 = $player2.hp
     erb(:play)
   end
 
@@ -23,6 +23,8 @@ class Battle < Sinatra::Base
   end
 
   post '/attack' do
+    $attack = !!params[:attack]
+    $player2.hp -= 10
     redirect '/play'
   end
 
