@@ -6,8 +6,8 @@ class Battle < Sinatra::Base
 
   get '/play' do
     @attack = !!params[:attack]
-    @player1 = $player1.class
-    @player2 = $player2.class
+    @player1 = $player1.name
+    @player2 = $player2.name
     @points2 = 100
     erb(:play)
   end
