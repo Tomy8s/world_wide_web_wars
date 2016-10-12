@@ -4,6 +4,7 @@ class Battle < Sinatra::Base
   enable :sessions
 
   get '/play' do
+    @attack = !!params[:attack]
     @player1 = session[:player1]
     @player2 = session[:player2]
     @points2 = 100
@@ -20,7 +21,9 @@ class Battle < Sinatra::Base
     redirect '/play'
   end
 
-
+  post '/attack' do
+    redirect '/play'
+  end
 
   # start the server if ruby file executed directly
   run! if app_file == $0
