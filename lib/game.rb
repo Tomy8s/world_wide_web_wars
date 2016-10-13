@@ -3,11 +3,21 @@ require_relative 'player'
 class Game
   attr_reader :message, :player_1, :player_2, :attacker, :defender
 
+  def self.create(player_1, player_2)
+    @instance = Game.new(player_1, player_2)
+
+  end
+
+  def self.instance
+    @instance
+  end
+
+
 	def initialize(player_1, player_2)
 		@message = "Let battle commence!"
-    @player_1 = Player.new(player_1)
+    @player_1 =  Player.new(player_1)
     @attacker = @player_1
-    @player_2 = Player.new(player_2)
+    @player_2 =  Player.new(player_2)
     @defender = @player_2
 	end
 
@@ -37,7 +47,7 @@ class Game
     if @defender.hp <= 0
       @message = "Game over. The winner is #{@attacker.name}."
     else
-			@message = "You have hit #{player.name}." 
+			@message = "You have hit #{player.name}."
     end
 	end
 

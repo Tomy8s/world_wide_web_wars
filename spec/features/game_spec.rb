@@ -14,7 +14,10 @@ feature 'game' do
 
   scenario 'losing game' do
     sign_in_and_play
-    10.times { click_button 'Attack!'}
+    10.times do
+       allow(Game.instance.defender).to receive(:random_number).and_return(10)
+       click_button 'Attack!'
+    end
     expect(page).to have_content 'Game over. The winner is Tom.'
   end
 
