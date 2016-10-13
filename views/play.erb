@@ -14,10 +14,15 @@
 <p>
   <%= @player2.name %> has <%= @player2.hp %>HP.
 </p>
-
-<form action="/attack" method="POST">
-  <button type="submit" name="attack" value="true">Attack!</button>
-</form>
-<form action="/switch" method="POST">
-  <button type="submit" value="true">Switch Turns!</button>
-</form>
+<% unless @game.defender.hp <= 0 %>
+  <form action="/attack" method="POST">
+    <button type="submit" name="attack" value="true">Attack!</button>
+  </form>
+  <form action="/switch" method="POST">
+    <button type="submit" value="true">Switch Turns!</button>
+  </form>
+<% else %>
+  <form action="/" method="GET">
+    <button type="submit" name="attack" value="true">Play Again</button>
+  </form>
+<% end %>

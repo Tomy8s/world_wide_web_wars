@@ -34,7 +34,11 @@ class Game
   private
 
 	def update_message(player)
+    if @defender.hp <= 0
+      @message = "Game over. The winner is #{@attacker.name}."
+    else
 			@message = "You have hit #{player.name}." 
+    end
 	end
 
 end
