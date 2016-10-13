@@ -11,4 +11,11 @@ feature 'game' do
     click_button 'Switch Turns!'
     expect(page).to have_content 'It\'s Brian\'s turn to attack.'
   end
+
+  scenario 'losing game' do
+    sign_in_and_play
+    10.times { click_button 'Attack!'}
+    expect(page).to have_content 'Game over. The winner is Tom.'
+  end
+
 end
