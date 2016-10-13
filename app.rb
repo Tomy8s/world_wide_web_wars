@@ -10,7 +10,7 @@ class Battle < Sinatra::Base
   
   get '/play' do
     @player1 = @game.player_1
-    @player2 = @game.player_2
+    @player2 = @game.player_2 
     erb(:play)
   end
 
@@ -19,7 +19,7 @@ class Battle < Sinatra::Base
   end
 
   post '/names' do
-    Game.create(params[:player1], params[:player2])
+    Game.create(params[:player1], params[:player2], params[:is_computer])
     redirect '/play'
   end
 

@@ -14,7 +14,7 @@
 <p>
   <%= @player2.name %> has <%= @player2.hp %>HP.
 </p>
-<% unless @game.defender.hp <= 0 %>
+<% unless (@player1.hp == 0 || @player2.hp == 0) %>
   <form action="/attack" method="POST">
     <button type="submit" name="attack" value="true">Attack!</button>
   </form>
