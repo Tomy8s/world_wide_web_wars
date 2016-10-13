@@ -1,9 +1,5 @@
 <h1>Battle!</h1>
-<% if @attack %>
-  <p>
-    You have hit <%= @player2.name %>.
-  </P>
-<% end %>
+<%= @game.message %>
 <p>
   <%= @player1.name %> vs <%= @player2.name %>
 </p>
@@ -13,6 +9,7 @@
 <p>
   <%= @player2.name %> has <%= @player2.hp %>HP.
 </p>
+
 <form action="/attack" method="POST">
   <button type="submit" name="attack" value="true">Attack</button>
 </form>

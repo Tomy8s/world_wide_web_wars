@@ -22,8 +22,7 @@ class Battle < Sinatra::Base
   end
 
   post '/attack' do
-    $attack = !!params[:attack]
-    $player2.receive_damage
+    Game.new.attack($player2)
     redirect '/play'
   end
 
