@@ -17,12 +17,9 @@ class Player
   end
 
 
-  def receive_damage
-    @hp -= random_number
+  def receive_damage(number = rand(15))
+    @hp -= number
   end
 
-  def random_number
-    rand(15)
-  end
 
 end

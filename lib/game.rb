@@ -25,8 +25,8 @@ class Game
     @users = [@player_1, @player_2]
   end
 
-	def attack
-		defender.receive_damage
+	def attack(*damage)
+		defender.receive_damage(*damage)
     if defender.is_computer
       attacker.receive_damage unless defender.hp == 0
 		  update_message(defender)

@@ -7,10 +7,10 @@ class Battle < Sinatra::Base
   before do
     @game = Game.instance
   end
-  
+
   get '/play' do
     @player1 = @game.player_1
-    @player2 = @game.player_2 
+    @player2 = @game.player_2
     erb(:play)
   end
 
@@ -24,7 +24,11 @@ class Battle < Sinatra::Base
   end
 
   post '/attack' do
-    @game.attack
+    if params[:hp]
+      @game.attack(params[:hp].to_i)
+    else
+      @game.attack
+    end
     redirect '/play'
   end
 
