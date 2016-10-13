@@ -14,10 +14,9 @@ feature 'game' do
 
   scenario 'losing game' do
     sign_in_and_play
-    10.times do
+    5.times do
        click_button 'Switch Turns!'
-       allow(Game.instance.defender).to receive(:random_number).and_return(10)
-       click_button 'Attack!'
+       click_button 'Power Attack!'
     end
     expect(page).to have_content 'Game over. The winner is Brian.'
   end
