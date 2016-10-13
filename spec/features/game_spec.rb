@@ -11,6 +11,6 @@ feature 'game' do
   scenario 'switching turns' do
     sign_in_and_play
     click_button 'Switch Turns!'
-    expect(page).to have_content 'it\'s Brian\'s turn to attack.'
+    expect(page).to have_content 'It\'s Brian\'s turn to attack.'
   end
 end
