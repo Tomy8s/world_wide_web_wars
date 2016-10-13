@@ -2,10 +2,9 @@ require 'game'
 
 
 describe Game do
-
-  let(:player1) { double :player }
-  let(:player2) { double :player }
-
+  let(:player1) { double :player, name: 'Michal', hp: 100 }
+  let(:player2) { double :player, name: 'Tom', hp: 100 }
+  let(:subject) { Game.new(player1, player2) }
 
 
   describe '#attack' do

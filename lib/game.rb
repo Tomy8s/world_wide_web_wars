@@ -1,17 +1,23 @@
 class Game
+  attr_reader :message, :player_1, :player_2
 
-
-	def initialize
+	def initialize(player_1, player_2)
 		@message = ""
+    @player_1 = player_1
+    @player_2 = player_2
 	end
 
-	def attack(player)
+  def users
+    @users = [@player_1, @player_2]
+  end
+
+	def attack(player = @player_2)
 		player.receive_damage
-		message
+		update_message(player)
 	end
 
-	def message
-			@message = "player attacked player 2"
+	def update_message(player)
+			@message = "You have hit #{player.name}." 
 	end
 
 end
