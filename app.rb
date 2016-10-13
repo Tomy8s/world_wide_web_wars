@@ -4,7 +4,6 @@ require_relative 'lib/game.rb'
 
 class Battle < Sinatra::Base
 
-
   get '/play' do
     @game = $game
     @player1 = $game.player_1
@@ -32,6 +31,7 @@ class Battle < Sinatra::Base
     $game.switch_turns
     redirect '/play'
   end
+
   # start the server if ruby file executed directly
   run! if app_file == $0
 end

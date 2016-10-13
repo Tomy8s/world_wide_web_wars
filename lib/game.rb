@@ -1,3 +1,5 @@
+require_relative 'player'
+
 class Game
   attr_reader :message, :player_1, :player_2, :attacker, :defender
 
@@ -13,9 +15,9 @@ class Game
     @users = [@player_1, @player_2]
   end
 
-	def attack(player = @player_2)
-		player.receive_damage
-		update_message(player)
+	def attack
+		defender.receive_damage
+		update_message(defender)
 	end
 
   def switch_turns
@@ -26,6 +28,7 @@ class Game
       @attacker = @player_1
       @defender = @player_2
     end
+    @message = 'You have switched turns.'
   end
 
   private

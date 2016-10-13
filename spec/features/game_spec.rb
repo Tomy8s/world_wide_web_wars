@@ -1,7 +1,5 @@
 require 'spec_helper'
 
-
-
 feature 'game' do
   scenario 'showing player_1\'s turn by default' do
     sign_in_and_play

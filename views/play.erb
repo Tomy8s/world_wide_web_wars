@@ -6,7 +6,7 @@
   It's <%= @game.attacker.name %>'s turn to attack.
 </p>
 <p>
-  <%= @player1.name %> vs <%= @player2.name %>
+  <%= $game.player_1.name %> vs <%= $game.player_2.name %>
 </p>
 <p>
   <%= @player1.name %> has <%= @player1.hp %>HP.
@@ -16,7 +16,7 @@
 </p>
 
 <form action="/attack" method="POST">
-  <button type="submit" name="attack" value="true">Attack</button>
+  <button type="submit" name="attack" value="true">Attack!</button>
 </form>
 <form action="/switch" method="POST">
   <button type="submit" value="true">Switch Turns!</button>
