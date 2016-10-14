@@ -36,12 +36,14 @@ end
 
 feature 'Computer attacking' do
   scenario 'computer automatically attacks after being attacked' do
-    sign_in_and_play_computer
+    visit '/'
+    fill_in :player_1_name, with: 'Bob'
+    click_button 'Submit'
     allow(Game.instance).to receive(:random_number).and_return 10
-    # attack_helper
     click_button 'ATTACK!'
+    expect(page).to have_current_path '/confirm_attack'
     click_button 'OK'
-
+    expect(page).to have_current_path '/confirm_attack'
     expect(page).to have_content ("Bob HP: 90 Computer HP: 90")
   end
 end

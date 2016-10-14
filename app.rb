@@ -27,7 +27,7 @@ class Battle < Sinatra::Base
     erb(:play)
   end
 
-  post '/aftermath' do
+  get '/aftermath' do
     @game.attack(@game.opponent)
       if @game.game_over?
         redirect '/game_over'
@@ -44,10 +44,10 @@ class Battle < Sinatra::Base
     erb(:game_over)
   end
 
-  post '/switch_turns' do
+  get '/switch_turns' do
     @game.switch_turns
     if @game.current_turn.is_computer
-      redirect '/aftermath', 307
+      redirect '/aftermath'
     else
       redirect '/play'
     end
