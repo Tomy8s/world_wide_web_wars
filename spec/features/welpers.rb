@@ -5,6 +5,12 @@ def sign_in_and_play
   click_button 'Submit'
 end
 
+def sign_in_and_play_computer
+  visit '/'
+  fill_in :player_1_name, with: "Bob"
+  click_button 'Submit'
+end
+
 def attack_helper
   click_button 'ATTACK!'
   click_button 'OK'
