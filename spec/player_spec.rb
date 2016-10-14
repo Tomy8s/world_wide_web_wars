@@ -15,8 +15,8 @@ describe Player do
 
   describe '#reduce_health' do
     it 'should reduce health by 10' do
-      expect { dave.reduce_health }.to change { dave.health }.by(-10)
+      expect { dave.reduce_health(10) }.to change { dave.health }.by(-10)
     end
   end
-  
+
 end

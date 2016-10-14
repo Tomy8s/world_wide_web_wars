@@ -31,7 +31,7 @@ class Game
   end
 
   def attack(opponent)
-    opponent.reduce_health
+    opponent.reduce_health(random_number)
   end
 
   def game_over?
@@ -55,5 +55,9 @@ private
 
   def losing_players
     @players.select{|player| player.health <= 0}
+  end
+
+  def random_number
+    rand(20)
   end
 end

@@ -9,8 +9,8 @@ class Player
     @health = health
   end
 
-  def reduce_health
-    @health -= 10
+  def reduce_health(random_number)
+    @health -= random_number
   end
 
 end

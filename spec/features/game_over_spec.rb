@@ -5,8 +5,8 @@ feature 'Game Over' do
   context 'player 2 dies' do
     before do
       sign_in_and_play
+      allow(Game.instance).to receive(:random_number).and_return 10
       18.times {attack_helper}
-      # allow(Kernel).to receive(:rand).and_return(100)
     end
 
     scenario 'player 2 dies' do
