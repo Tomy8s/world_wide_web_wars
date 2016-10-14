@@ -8,8 +8,9 @@ feature 'attack player 2' do
     expect(page).to have_content ("Larry's turn")
   end
 
-  scenario "attacks player 2 and reduces hit points by 10" do
+  scenario "attacks player 2 and reduces hit points by 'random' amount" do
     sign_in_and_play
+    allow(Game.instance).to receive(:random_number).and_return 10
     click_button 'ATTACK!'
     expect(page).to have_content ("Larry HP: 90")
   end
