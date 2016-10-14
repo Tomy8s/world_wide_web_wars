@@ -58,6 +58,6 @@ private
   end
 
   def random_number
-    rand(20)
+    rand(1..20)
   end
 end

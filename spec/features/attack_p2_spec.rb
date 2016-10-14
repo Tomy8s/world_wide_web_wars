@@ -38,7 +38,10 @@ feature 'Computer attacking' do
   scenario 'computer automatically attacks after being attacked' do
     sign_in_and_play_computer
     allow(Game.instance).to receive(:random_number).and_return 10
-    attack_helper
+    # attack_helper
+    click_button 'ATTACK!'
+    click_button 'OK'
+
     expect(page).to have_content ("Bob HP: 90 Computer HP: 90")
   end
 end

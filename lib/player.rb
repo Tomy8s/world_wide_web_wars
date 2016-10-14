@@ -1,11 +1,12 @@
 class Player
 
-  attr_reader :name, :health
+  attr_reader :name, :health, :is_computer
 
   HIT_POINTS = 100
 
-  def initialize(name, health = HIT_POINTS)
+  def initialize(name, is_computer = false, health = HIT_POINTS)
     @name = name
+    @is_computer = is_computer
     @health = health
   end
 

@@ -14,7 +14,11 @@ class Battle < Sinatra::Base
 
   post '/names' do
     player_1 = Player.new(params[:player_1_name])
-    player_2 = Player.new(params[:player_2_name] != '' ? params[:player_2_name] : 'Computer')
+    if params[:player_2_name] == ''
+      player_2 = Player.new('Computer', true)
+    else
+      player_2 = Player.new(params[:player_2_name])
+    end
     @game = Game.create(player_1, player_2)
     redirect '/play'
   end
@@ -28,11 +32,11 @@ class Battle < Sinatra::Base
       if @game.game_over?
         redirect '/game_over'
       else
-        redirect '/aftermath'
+        redirect '/confirm_attack'
       end
   end
 
-  get '/aftermath' do
+  get '/confirm_attack' do
     erb(:aftermath)
   end
 
@@ -42,7 +46,11 @@ class Battle < Sinatra::Base
 
   post '/switch_turns' do
     @game.switch_turns
-    redirect '/play'
+    if @game.current_turn.is_computer
+      redirect '/aftermath', 307
+    else
+      redirect '/play'
+    end
   end
 
   # start the server if ruby file executed directly
