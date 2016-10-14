@@ -1,8 +1,8 @@
-<h2><%= @game.current_turn.name%> has attacked <%=@game.opponent.name%> </h2>
+<h2><%= @game.current_turn.name %> has attacked <%= @game.opponent.name %> </h2>
 <h2><%= @game.opponent.name %>'s turn next</h2>
 
-<h2><%=@game.player_1.name %> HP: <%= @game.player_1.health %></h2>
-<h2><%=@game.player_2.name %> HP: <%= @game.player_2.health %></h2>
+<h2><%= @game.player_1.name %> HP: <%= @game.player_1.health %></h2>
+<h2><%= @game.player_2.name %> HP: <%= @game.player_2.health %></h2>
 
 <form action="/switch_turns" method="post">
   <input type="submit" value="OK">
